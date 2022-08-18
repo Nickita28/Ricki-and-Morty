@@ -1,0 +1,34 @@
+{
+    "extends": [
+        "react-app",
+        "react-app/jest"
+      ],
+      "rules": {
+         "no-console":"warn", 
+         "prefer-const":"error",
+         "quotes":["error", "single"], // rules quotes single
+         "jsx-quotes": ["error", "prefer-double"], // rules quotes jsx double
+         "indent" : ["warn", 2],    // indent 2
+         "comma-dangle":["error","always-multiline"], // rules of commas
+         // "semi": ["warn", "always"], 
+         "import/order":["error", {
+            "groups": ["builtin", "external", "internal",
+         "sibling", "index", "object", "type"] //rules import
+   //       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+   //       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+   //  "import/prefer-default-export": "off",
+   //  "import/no-unresolved": "off",
+   //  "react/jsx-props-no-spreading": "off",
+   //  "react/destructuring-assignment": "off",
+   //  "no-else-return": 0,
+   //  "react/require-default-props": 0,
+   //  "react/forbid-prop-types": 0,
+   //  "no-var": 1,
+   //  "no-console": 1,
+   //  "no-alert": 1
+    
+   }]
+
+      }
+}
+ 
