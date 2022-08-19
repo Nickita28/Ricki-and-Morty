@@ -14,7 +14,7 @@ const  NavBar = ({allEpisodes, setTest}) =>  {
 
   const onSubmitMenu = (value) =>{
 
-    return setTest(value.key)
+     setTest(value.key)
   }
 
 

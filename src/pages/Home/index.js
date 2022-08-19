@@ -39,11 +39,9 @@ const  Home = () => {
   const newCharacters = characters&&characters.map(item =>
     
     <Link  className="card-link" key={item.id} to={`/character/${item.id}`}> 
-      <Card
-        hoverable
-        style={{
-          width: 180,
-        }}
+      <Card className="card-img"
+        
+       
         cover={<img alt="character" src={item.image} />}
       >
         <Meta title={item.name} description={`status: ${item.status}`} />
@@ -59,9 +57,14 @@ const  Home = () => {
   return(
     <div className = "home-container">
    
-      <div>
-        <Pagination defaultCurrent={currentPage} total={pages} onChange={onChangeHandler} />
-        {newCharacters}
+      <div className="pagination">
+        <Pagination  defaultCurrent={currentPage} total={pages} onChange={onChangeHandler} />
+        <div className="card-container" > 
+          {newCharacters}
+        </div> 
+      
+        
+       
       </div>
     </div>
   

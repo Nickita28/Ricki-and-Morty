@@ -5,8 +5,7 @@ import NavBar from '../../components/NavBar';
 
 import {getLastStrItem} from '../utils'
 
-
-// import './styles.css'
+import './characters-styles.css'
 
 const { Meta } = Card;
 
@@ -16,41 +15,25 @@ const  Characters = () => {
   const [test,setTest]= useState(1)
   const [characters,setCharacters] = useState()
   const [episodes,setEpisodes] = useState([]) // state of all episodes
- 
+
 
   useEffect(() => {
-      
+
     fetch(`https://rickandmortyapi.com/api/episode/${test}`)
       .then(data => data.json())
       .then(res =>{
         const episodeId = (res.characters.map(item => getLastStrItem(item,'/')))
-           
         fetch(`https://rickandmortyapi.com/api/character/${episodeId}`)
           .then(data => data.json())
           .then(res =>setCharacters(res))
-     
-      },[test])
-      
- 
-   
-    })
 
-  console.log(characters)
+      })
 
- // Get a single episode
-  // useEffect((id=1) =>{
-  //   if(!episodeId) {
-  //     fetch(`https://rickandmortyapi.com/api/episode/${id=1}`)
-  //       .then(data => data.json())
-  //       .then (res =>{
-  //         setEpisodeId(res.characters.map(item =>getLastStrItem(item,'/')))
-      
-      
-  //       },[episodeId])
-  //   }
-  // })
-  
-  //    console.log(episodeId)
+
+
+    },[test])
+
+
 
 
   // fetch request all episodes(navbar)
@@ -65,11 +48,11 @@ const  Characters = () => {
   //Output of img characters
   const newCharacters = characters && characters.map(item =>
     <Link  className="card-link" key={item.id} to={`/character/${item.id}`}> 
-      <Card
-        hoverable
-        style={{
-          width: 220,
-        }}
+      <Card className="card-img"
+       hoverable
+       style={{
+         width: 220,
+       }}
         cover={<img alt="character" src={item.image} />}
       >
         <Meta title={item.name} description={`status: ${item.status}`} />
@@ -77,17 +60,17 @@ const  Characters = () => {
     </Link> );
 
 
- 
+
 
   return(
     <div className = "home-container">
-      <NavBar allEpisodes={episodes} setTest={setTest}/> 
-      <div>
-       
-        {newCharacters}    
+      <div className="nav-bar">
+        <NavBar allEpisodes={episodes} setTest={setTest}/> 
+    
+      <div className="card-container"> {newCharacters}  </div>
       </div>
     </div>
-  
+
   )
 };
 
